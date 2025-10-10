@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Header } from "./Header";
-import Stack from "./Stack";
+import Stack, { type CardData } from "./Stack";
 
 export const HeroSection = () => {
-  const images = [
+  const images: CardData[] = [
     {
       id: 1,
       img: "/assets/images/gallery/basket-goal.jpeg",
@@ -63,7 +63,7 @@ export const HeroSection = () => {
               </span>
             </h1>
             <p className="text-white/90 text-base lg:text-lg max-w-md lg:max-w-lg mt-4 lg:mt-6 px-4 lg:px-0 leading-relaxed">
-              Africa's premier basketball league showcasing elite talent.
+              Africa&apos;s premier basketball league showcasing elite talent.
             </p>
           </div>
 
@@ -74,7 +74,7 @@ export const HeroSection = () => {
                 sensitivity={180}
                 sendToBackOnClick={false}
                 cardDimensions={{ width: 400, height: 500 }}
-                cardsData={images as any}
+                cardsData={images}
               />
             </div>
 
@@ -84,7 +84,7 @@ export const HeroSection = () => {
                 sensitivity={150}
                 sendToBackOnClick={false}
                 cardDimensions={{ width: 280, height: 350 }}
-                cardsData={images as any}
+                cardsData={images}
               />
             </div>
           </div>
