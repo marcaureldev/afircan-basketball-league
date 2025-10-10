@@ -1,4 +1,4 @@
-import { HeroSection, LiveMatchCard, Metrics } from "@/components";
+import { HeroSection, LiveMatchCard, Metrics, ResultatsRécents } from "@/components";
 import TextCursor from "@/components/TextCursor";
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
         <HeroSection />
         <Metrics />
         <LiveMatchCard />
+        <ResultatsRécents />
       </TextCursor>
     </div>
   );

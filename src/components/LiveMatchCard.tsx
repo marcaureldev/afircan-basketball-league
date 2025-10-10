@@ -18,15 +18,14 @@ export const LiveMatchCard = ({ onNavigate }: LiveMatchCardProps) => {
     if (onNavigate) {
       onNavigate("match", matchId);
     } else {
-      // Navigation par défaut avec Next.js
       console.log("Navigate to match:", matchId);
     }
   };
 
   return (
-    <div className="dark:bg-slate-950">
+    <section className="container mx-auto px-4 py-16 bg-white dark:bg-slate-950">
       {liveMatch ? (
-        <section className="container mx-auto px-4 py-16">
+        <div>
           <div className="mb-6 flex items-center gap-2">
             <div className="h-3 w-3 animate-pulse rounded-full bg-red-500 dark:bg-red-400"></div>
             <h2 className="text-3xl font-bold tracking-wider text-gray-900 dark:text-white">
@@ -37,9 +36,9 @@ export const LiveMatchCard = ({ onNavigate }: LiveMatchCardProps) => {
             match={liveMatch}
             onClick={() => handleMatchClick(liveMatch.id)}
           />
-        </section>
+        </div>
       ) : nextMatch ? (
-        <section>
+        <div>
           <div className="mb-6 flex items-center gap-2">
             <Calendar className="h-6 w-6 text-orange-500 dark:text-orange-400" />
             <h2 className="text-3xl font-bold tracking-wider text-gray-900 dark:text-white">
@@ -50,8 +49,8 @@ export const LiveMatchCard = ({ onNavigate }: LiveMatchCardProps) => {
             match={nextMatch}
             onClick={() => handleMatchClick(nextMatch.id)}
           />
-        </section>
+        </div>
       ) : null}
-    </div>
+    </section>
   );
 };
