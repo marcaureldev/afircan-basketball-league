@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +57,7 @@ export const Header = () => {
       </button>
 
       {/* Navigation Desktop */}
-      <div className="hidden lg:flex items-center p-5">
+      <div className="hidden lg:flex items-center p-5 gap-6">
         <ul className="flex gap-6 text-sm font-medium">
           {menuItems.map((item) => (
             <li key={item.href}>
@@ -69,6 +70,7 @@ export const Header = () => {
             </li>
           ))}
         </ul>
+        <ThemeToggle />
       </div>
 
       {/* Logo */}
@@ -100,7 +102,7 @@ export const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="lg:hidden fixed left-0 top-0 bottom-0 w-3/4 sm:w-1/2 bg-black/95 backdrop-blur-lg z-40 border-r border-orange-400/20"
+              className="lg:hidden fixed left-0 top-0 bottom-0 w-3/4 sm:w-1/2 bg-white/95 dark:bg-black/95 backdrop-blur-lg z-40 border-r border-gray-200 dark:border-orange-400/20"
             >
               <nav className="flex flex-col h-full pt-20 px-6">
                 <ul className="flex flex-col gap-4">
@@ -114,13 +116,18 @@ export const Header = () => {
                       <Link
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block text-lg font-medium text-white hover:text-orange-400 transition-colors py-2"
+                        className="block text-lg font-medium text-gray-900 dark:text-white hover:text-orange-400 transition-colors py-2"
                       >
                         {item.label}
                       </Link>
                     </motion.li>
                   ))}
                 </ul>
+                
+                {/* Theme Toggle dans le menu mobile */}
+                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                  <ThemeToggle />
+                </div>
               </nav>
             </motion.div>
           </>
